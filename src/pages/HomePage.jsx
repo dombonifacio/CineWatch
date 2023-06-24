@@ -9,10 +9,10 @@ export const HomePage = () => {
         getMoviesData()
     }, [])
 
-    const getMoviesData = (page) => {
-        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=e1dca25da22a67a9069503b710cfa699')
+    const getMoviesData = () => {
+        axios.get('https://api.themoviedb.org/3/discover/movie?page=3&api_key=e1dca25da22a67a9069503b710cfa699')
         .then(({data}) => {
-            console.log(page)
+            console.log(data)
         })
     }
 
