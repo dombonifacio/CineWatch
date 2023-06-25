@@ -6,6 +6,15 @@ export default {
   ],
   theme: {
     extend: {},
+    colors: {
+      light:{
+        blue: "#0EA5E9"
+      },
+      dark: {
+        blue: "#0B1120"
+      }
+
+    }
   },
   plugins: [],
 }
