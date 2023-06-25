@@ -8,6 +8,7 @@ import { TopRatedPage } from './pages/TopRatedPage'
 import { UpcomingMoviesPage } from './pages/UpcomingMoviesPage'
 import { MyListPage } from './pages/MyListPage'
 
+
 function App() {
   
 

@@ -1,17 +1,10 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
 }
 
 
-
-
-body {
-  background-color: #0B1120;
-  color: rgb(206, 206, 206);
-}
 .active-page  {
   color: #1E293B;
   font-weight: bold;

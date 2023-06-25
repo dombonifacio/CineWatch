@@ -1,4 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    background-color: #0B1120;
+    color: rgb(233, 233, 233);
+  
+   
+  
+}
+
+
+  

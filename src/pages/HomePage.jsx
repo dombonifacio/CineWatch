@@ -1,10 +1,14 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+
+// css 
 import '../App.css'
 
 
 
+// components
 import { PaginationButtonsComponent } from "../components/PaginationButtonsComponent"
+import { NavbarComponent } from "../components/NavbarComponent"
 
 export const HomePage = () => {
 
@@ -49,15 +53,16 @@ export const HomePage = () => {
  
 
     return (
-       <>
-           <h1>
-            You are on the Home Page
-            </h1>
-            <h1>React Paginate Example</h1>
-        
-           <PaginationButtonsComponent pageSelected={pageSelected} setPageSelected={setPageSelected} handlePageClick={handlePageClick}/>
+        <>
+
+            <NavbarComponent />
+            <div className="p-4 flex flex-col items-center mt-10">
+               <p className="text-4xl font-extrabold text-center">Experience the joy of watching movies on our website, where entertainment comes to life. </p>
+                <PaginationButtonsComponent pageSelected={pageSelected} setPageSelected={setPageSelected} handlePageClick={handlePageClick}/>
+            </div>
+        </>
             
       
-        </>
+        
     )
 }

@@ -1,6 +1,6 @@
-import { useState } from "react"
-import ReactPaginate from "react-paginate"
 
+import ReactPaginate from "react-paginate"
+import '../App.css'
 export const PaginationButtonsComponent = ({pageSelected, handlePageClick}) => {
     
     const showPreviousButton = pageSelected !== 1
@@ -15,7 +15,7 @@ export const PaginationButtonsComponent = ({pageSelected, handlePageClick}) => {
          <ReactPaginate
                 previousLabel={
                    
-                    showPreviousButton ? <span className="w-10 h-10 text-red-500 ">
+                    showPreviousButton ? <span className="w-10 h-10  ">
                     ←
                     </span> :
                     null
@@ -32,9 +32,9 @@ export const PaginationButtonsComponent = ({pageSelected, handlePageClick}) => {
                 onPageChange={handlePageClick}
                 onPageActive={1}
                 breakLabel={null}
-                pageClassName="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center not-active-page"
+                pageClassName="w-10 h-10  rounded-full flex items-center justify-center not-active-page"
                 
-                containerClassName="flex items-center justify-center gap-4 bg-red-500"
+                containerClassName="flex items-center justify-center gap-4 "
                 
                 activeClassName="bg-light-blue active-page"
                 
