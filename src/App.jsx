@@ -7,6 +7,7 @@ import { HomePage } from './pages/HomePage'
 import { TopRatedPage } from './pages/TopRatedPage'
 import { UpcomingMoviesPage } from './pages/UpcomingMoviesPage'
 import { MyListPage } from './pages/MyListPage'
+import { DiscoverPage } from './pages/DiscoverPage'
 
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
     {
       path: '/',
       element: <HomePage />
+    },
+    {
+      path: '/discover',
+      element: <DiscoverPage />
     },
     {
       path: '/toprated',

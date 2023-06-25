@@ -5,10 +5,14 @@ import { useEffect, useState } from "react"
 import '../App.css'
 
 
-
 // components
-import { PaginationButtonsComponent } from "../components/PaginationButtonsComponent"
-import { NavbarComponent } from "../components/NavbarComponent"
+import { NavbarHomePageComponent } from "../components/NavbarHomePageComponent"
+
+// icons
+import { GrFormNextLink } from 'react-icons/gr'
+
+// hooks
+import { BrowserRouter, Link } from "react-router-dom"
 
 export const HomePage = () => {
 
@@ -55,10 +59,26 @@ export const HomePage = () => {
     return (
         <>
 
-            <NavbarComponent />
-            <div className="p-4 flex flex-col items-center mt-10">
-               <p className="text-4xl font-extrabold text-center">Experience the joy of watching movies on our website, where entertainment comes to life. </p>
-                <PaginationButtonsComponent pageSelected={pageSelected} setPageSelected={setPageSelected} handlePageClick={handlePageClick}/>
+            <NavbarHomePageComponent />
+            <div className="p-4 flex flex-col items-center mt-24 gap-5 h-screen">
+               <p className="text-4xl font-extrabold text-center">Unleash Your Inner Cinephile: Explore, Stream, and Enjoy!</p>
+               <p className="text-center font-extralight text-slate-400">Experience the joy of watching movies on our website, where entertainment comes to life.
+               Indulge in a cinematic adventure from the comfort of your own screen, as our diverse collection of movies caters to every genre and mood.</p>
+               <input type="text" className="w-full p-2 text-dark-700 border rounded-md" placeholder="Search for a movie">
+               
+               </input>
+              
+               
+               
+                <Link to='/discover' className="rounded-full border p-3 w-1/2 bg-sky-500 border-dark-blue text-black text-xl hover:bg-sky-700  font-md flex justify-center items-center gap-2">
+                    
+                    Watch Movies
+                    <span>
+                        <GrFormNextLink />
+                    </span>
+                </Link>
+              
+              
             </div>
         </>
             

@@ -9,6 +9,7 @@ export default {
         },
         dark: {
           blue: "#0B1120",
+          700: "#1E293B"
         },
       },
     },
