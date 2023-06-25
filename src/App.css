@@ -18,7 +18,8 @@ body {
 }
 .not-active-page {
   background-color: #1E293B;
-  
-  
+}
 
+.not-active-page:hover {
+  background-color: #43546e;
 }
