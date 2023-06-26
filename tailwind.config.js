@@ -9,8 +9,12 @@ export default {
         },
         dark: {
           blue: "#0B1120",
+          500: "#3E4964",
           700: "#1E293B"
         },
+        detail: "#B0B9CE"
+
+       
       },
     },
     fontFamily: {
