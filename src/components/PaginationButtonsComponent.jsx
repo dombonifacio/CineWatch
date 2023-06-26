@@ -14,7 +14,7 @@ export const PaginationButtonsComponent = () => {
     const handlePageClick = (event) => {
       
         setPageSelected(event.selected + 1)
-        console.log(event.selected + 1, 'page number selected')
+       
     } 
     
   

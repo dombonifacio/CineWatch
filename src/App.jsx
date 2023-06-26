@@ -41,7 +41,7 @@ function App() {
   }, [pageSelected])
 
   const getMoviesData = () => {
-      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=${pageSelected}&include_video=true&sort_by=popularity.desc`)
+      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=${pageSelected}&include_video=true&sort_by=popularity.desc&language=en-US`)
       .then(({data}) => {
         const requiredData = data.results.map((movie) => {
           return {

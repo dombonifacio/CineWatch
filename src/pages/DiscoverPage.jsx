@@ -33,7 +33,7 @@ export const DiscoverPage = () => {
     useEffect(() => {
         getMoviesData()
         
-    }, [pageSelected, genre])
+    }, [genre, pageSelected])
   
     const getMoviesData = () => {
         setLoading(true)
@@ -51,7 +51,8 @@ export const DiscoverPage = () => {
         })
     }
     
-    console.log(movies, 'discover page')
+    
+    console.log(pageSelected, 'page selected')
     return (
         <div>
             <select name="movies" id="movies" className="text-black" onChange={handleSetGenre}>
