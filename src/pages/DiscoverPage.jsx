@@ -23,6 +23,7 @@ export const DiscoverPage = () => {
     const { movies, setMovies } = useContext(MovieContext) 
     const { pageSelected } = useContext(PageSelectedContext)
     const [genre, setGenre] = useState("")
+    const [ loading, setLoading ] = useState(false)
 
     const handleSetGenre = (event) => {
        setGenre(event.target.value)
@@ -35,7 +36,8 @@ export const DiscoverPage = () => {
     }, [pageSelected, genre])
   
     const getMoviesData = () => {
-        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=${pageSelected}&include_video=true&sort_by=popularity.desc&with_genres=${genre}`)
+        setLoading(true)
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=${pageSelected}&include_video=true&sort_by=popularity.desc&language=en-US&with_genres=${genre}`)
         .then(({data}) => {
           const requiredData = data.results.map((movie) => {
             return {
@@ -43,8 +45,9 @@ export const DiscoverPage = () => {
               ...movie
             }
           })
-  
+          
           setMovies(requiredData)
+          setLoading(false)
         })
     }
     
@@ -77,7 +80,8 @@ export const DiscoverPage = () => {
             
             <NavbarComponent />
             You are on the Discover Page
-            <MovieContainerComponent />
+            {loading ? <h1>Loading...</h1> : <MovieContainerComponent /> }
+            
             <PaginationButtonsComponent  />
            
         </div>
