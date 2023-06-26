@@ -52,7 +52,7 @@ export const DiscoverPage = () => {
     }
     
     
-    console.log(pageSelected, 'page selected')
+    console.log(movies, 'movies listed on duiscover page')
     return (
         <div>
             <select name="movies" id="movies" className="text-black" onChange={handleSetGenre}>

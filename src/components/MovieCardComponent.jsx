@@ -23,7 +23,8 @@ export const MovieCardComponent = ({data, index}) => {
                       
                             <AiFillStar className="text-light-blue"/>
                       
-                            <p className="text-slate-400 text-sm">{data?.vote_average}</p>
+                            {data?.vote_average > 0 ? <p className="text-slate-400 text-sm">{data?.vote_average}</p> : <p className="text-slate-400 text-sm">N/A</p>}
+                        
                             
                         </li>
                         <li className="font-extrabold text-slate-400 text-xs">
