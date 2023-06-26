@@ -22,11 +22,13 @@ import { PageSelectedContext } from './context/PageSelectedContext'
 
 
 
+
 function App() {
 
   // pages selected for pagination component
   const [pageSelected, setPageSelected] = useState(1)
   const [movies, setMovies] = useState([])
+
     
     // declare var for total pages (tmdb gives 1000 total pages only)
     
@@ -39,14 +41,19 @@ function App() {
   }, [pageSelected])
 
   const getMoviesData = () => {
-      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=${pageSelected}`)
+      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=${pageSelected}&include_video=true&sort_by=popularity.desc`)
       .then(({data}) => {
-      
-          // setMovies([...movies, data.results])
-          setMovies(data.results)
+        const requiredData = data.results.map((movie) => {
+          return {
+            IsFavourite: false,
+            ...movie
+          }
+        })
 
+        setMovies(requiredData)
       })
   }
+
   
   // routes
 
@@ -78,12 +85,15 @@ function App() {
   ])
 
   return (
-    
-    <PageSelectedContext.Provider value={{pageSelected, setPageSelected}}>
-      <MovieContext.Provider value={{movies}}>
-      {element}
-      </MovieContext.Provider>
-    </PageSelectedContext.Provider>
+  
+      <PageSelectedContext.Provider value={{pageSelected, setPageSelected}}>
+        
+          <MovieContext.Provider value={{movies, setMovies}}>
+          {element}
+          </MovieContext.Provider>
+
+      </PageSelectedContext.Provider>
+
 
   )
 }
