@@ -38,7 +38,7 @@ export const MovieCardComponent = ({data, index}) => {
                         </li>
                         
                     </ul>
-                    <p className="text-slate-300 text-bold">{data?.original_title}</p>
+                    <p className="text-slate-300 text-bold truncate">{data?.original_title}</p>
                     <div className="bg-dark-500 p-1 mt-4">
                         <button className="text-slate-400 flex justify-evenly items-center">
                             <span >
