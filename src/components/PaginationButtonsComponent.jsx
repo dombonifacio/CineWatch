@@ -17,13 +17,14 @@ export const PaginationButtonsComponent = () => {
        
     } 
     
+    
   
 
     const showPreviousButton = pageSelected !== 1
     const showNextButton = pageSelected !== 1000
 
   
-    console.log(pageSelected)
+   
     return (
         <>
          {/* alt 174 for first page previous and alt 175 for last page next */}

@@ -9,8 +9,7 @@ import { MovieCardComponent } from "./MovieCardComponent"
 
 
 export const MovieContainerComponent = () => {
-    const { movies } = useContext(MovieContext)
-   
+   const { movies } = useContext(MovieContext)
  
     
 
@@ -23,10 +22,10 @@ export const MovieContainerComponent = () => {
                     <MovieCardComponent data={movie} />
                 )
             })} */}
-            {movies.map((movie) => {
+            {movies.map((movie, index) => {
                 return (
 
-                    <MovieCardComponent data={movie}/>
+                    <MovieCardComponent data={movie} index={index}/>
                 )
             })}
         </div>

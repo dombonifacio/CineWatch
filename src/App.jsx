@@ -2,7 +2,7 @@
 
 import './App.css'
 // hooks
-import { useRoutes } from 'react-router-dom'
+import { useRoutes, useLocation } from 'react-router-dom'
 import { useState, useEffect} from 'react'
 
 // pages
@@ -18,6 +18,8 @@ import axios from 'axios'
 // contexts
 import { MovieContext } from './context/MovieContext'
 import { PageSelectedContext } from './context/PageSelectedContext'
+import { NavbarComponent } from './components/NavbarComponent'
+import { NavbarHomePageComponent } from './components/NavbarHomePageComponent'
 
 
 
@@ -29,6 +31,9 @@ function App() {
   const [pageSelected, setPageSelected] = useState(1)
   const [movies, setMovies] = useState([])
 
+  // determine path
+  const location = useLocation()
+  const { pathname } = location
     
     // declare var for total pages (tmdb gives 1000 total pages only)
     
@@ -89,6 +94,7 @@ function App() {
       <PageSelectedContext.Provider value={{pageSelected, setPageSelected}}>
         
           <MovieContext.Provider value={{movies, setMovies}}>
+          {pathname === '/' ? <NavbarHomePageComponent /> : <NavbarComponent />}
           {element}
           </MovieContext.Provider>
 

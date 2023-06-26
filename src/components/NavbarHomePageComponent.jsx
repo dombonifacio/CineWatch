@@ -8,18 +8,26 @@ import { MdUpcoming } from 'react-icons/md'
 import { PiFilmSlateBold } from 'react-icons/pi'
 
 // hooks
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { BrowserRouter, Link } from 'react-router-dom'
+
+// context
+import { PageSelectedContext } from '../context/PageSelectedContext'
 
 
 
 export const NavbarHomePageComponent = () => {
     const [toggleMenu, setToggleMenu] = useState(false)
+    const { setPageSelected } = useContext(PageSelectedContext)
 
     const handleToggleMenu = () => {
         
         setToggleMenu((prevState) => !prevState)
       
+    }
+
+    const handleResetPage = () => {
+        setPageSelected(1)
     }
    
     return (
@@ -49,7 +57,7 @@ export const NavbarHomePageComponent = () => {
             {toggleMenu && <div className='p-2 bg-dark-700 '>
                 <ul className='flex flex-col gap-3 '>
                     <li className=''>
-                    <Link to='/' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                    <Link to='/' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                         <span>
                             <AiFillHome size={"1.5rem"}/>
                         </span>
@@ -57,7 +65,7 @@ export const NavbarHomePageComponent = () => {
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/discover' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                        <Link to='/discover' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                         <span >
                             <PiFilmSlateBold size={"1.5rem"}  / >
                             
@@ -67,7 +75,7 @@ export const NavbarHomePageComponent = () => {
                         
                     </li>
                     <li className=''>
-                        <Link to='/toprated' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                        <Link to='/toprated' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                         <span >
                             <AiFillStar size={"1.5rem"}  / >
                             
@@ -77,7 +85,7 @@ export const NavbarHomePageComponent = () => {
                         
                     </li>
                     <li className=''>
-                    <Link to='/upcoming' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                    <Link to='/upcoming' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                         <span >
                             <MdUpcoming size={"1.5rem"}  / >
                             
@@ -87,7 +95,7 @@ export const NavbarHomePageComponent = () => {
                         
                     </li>
                    <li className='mb-4'>
-                        <Link to='/mylist' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                        <Link to='/mylist' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                         <span >
                             <AiFillHeart size={"1.5rem"}  / >
                             

@@ -29,7 +29,6 @@ export const HomePage = () => {
     return (
         <>
 
-            <NavbarHomePageComponent />
             <div className="p-4 flex flex-col items-center mt-24 gap-5 h-screen">
                <p className="text-4xl font-extrabold text-center">Unleash Your Inner Cinephile: Explore, Stream, and Enjoy!</p>
                <p className="text-center font-extralight text-slate-400">Experience the exhilaration of watching movies on our state-of-the-art website, where entertainment transcends boundaries and transports you to a realm of immersive cinematic bliss. Indulge in an awe-inspiring cinematic adventure from the cozy confines of your own screen, as our vast and meticulously curated collection of movies caters to every conceivable genre, mood, and taste, promising an unforgettable sensory experience that will leave you spellbound and yearning for more.</p>

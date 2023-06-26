@@ -7,17 +7,17 @@ import { AiFillStar } from 'react-icons/ai'
 import { BsFillPlayFill } from 'react-icons/bs'
 
 
-export const MovieCardComponent = ({data}) => {
+export const MovieCardComponent = ({data, index}) => {
 
    
 
     return (
-        <div >
+        <>
         {/* No need to map through the data because in the movie container, it's already been mapped. We just want to design what one card would look like */}
         <div className="bg-dark-700">
                 <img src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`} />
                 {/* Details Section */}
-                <div className="pt-1 pb-3 px-2 flex flex-col">
+                <div className="pt-1 pb-3 px-2 flex flex-col" key={index}>
                     <ul className="flex items-center gap-x-2">
                         <li className="flex items-center gap-x-1">
                       
@@ -50,6 +50,6 @@ export const MovieCardComponent = ({data}) => {
                     
                 </div>
             </div>
-        </div>
+        </>
     )
 }

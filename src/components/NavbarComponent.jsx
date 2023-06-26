@@ -9,14 +9,26 @@ import { PiFilmSlateBold } from 'react-icons/pi'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 // hooks
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+
+// contexts
+import { PageSelectedContext } from '../context/PageSelectedContext'
 
 
 
 export const NavbarComponent = () => {
     const [toggleMenu, setToggleMenu] = useState(false)
     const [toggleSearch, setToggleSearch] = useState(false)
+    const { setPageSelected } = useContext (PageSelectedContext)
+
+
+    const handleResetPage = () => {
+        setPageSelected(1)
+    }
+
+
+
 
     const handleToggleMenu = () => {
         
@@ -25,6 +37,8 @@ export const NavbarComponent = () => {
     
       
     }
+
+    
 
     const handleToggleSearch = () => {
         setToggleSearch((prevState => !prevState))
@@ -74,7 +88,7 @@ export const NavbarComponent = () => {
                 <div className='p-2 bg-dark-700 '>
                     <ul className='flex flex-col gap-3 '>
                         <li className=''>
-                        <Link to='/' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                        <Link to='/' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2 ' onClick={handleResetPage}>
                             <span>
                                 <AiFillHome size={"1.5rem"}/>
                             </span>
@@ -82,7 +96,7 @@ export const NavbarComponent = () => {
                             </Link>
                         </li>
                         <li className=''>
-                            <Link to='/discover' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                            <Link to='/discover' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                             <span >
                                 <PiFilmSlateBold size={"1.5rem"}  / >
                                 
@@ -92,7 +106,7 @@ export const NavbarComponent = () => {
                             
                         </li>
                         <li className=''>
-                            <Link to='/toprated' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                            <Link to='/toprated' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                             <span >
                                 <AiFillStar size={"1.5rem"}  / >
                                 
@@ -102,7 +116,7 @@ export const NavbarComponent = () => {
                             
                         </li>
                         <li className=''>
-                        <Link to='/upcoming' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                        <Link to='/upcoming' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                             <span >
                                 <MdUpcoming size={"1.5rem"}  / >
                                 
@@ -112,7 +126,7 @@ export const NavbarComponent = () => {
                             
                         </li>
                     <li className='mb-4'>
-                            <Link to='/mylist' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2'>
+                            <Link to='/mylist' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                             <span >
                                 <AiFillHeart size={"1.5rem"}  / >
                                 

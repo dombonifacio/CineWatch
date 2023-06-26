@@ -79,7 +79,7 @@ export const DiscoverPage = () => {
 
             </select>
             
-            <NavbarComponent />
+           
             You are on the Discover Page
             {loading ? <h1>Loading...</h1> : <MovieContainerComponent /> }
             
