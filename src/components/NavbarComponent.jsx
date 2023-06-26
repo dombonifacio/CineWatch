@@ -4,13 +4,13 @@ import { FcFilmReel } from 'react-icons/fc'
 import { AiFillHome } from 'react-icons/ai'
 import { AiFillStar } from 'react-icons/ai'
 import { AiFillHeart } from 'react-icons/ai'
-import { MdHandshake, MdUpcoming } from 'react-icons/md'
+import { MdUpcoming } from 'react-icons/md'
 import { PiFilmSlateBold } from 'react-icons/pi'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 // hooks
 import { useState } from 'react'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
@@ -28,7 +28,7 @@ export const NavbarComponent = () => {
 
     const handleToggleSearch = () => {
         setToggleSearch((prevState => !prevState))
-        
+        setToggleMenu(false)
     }
    
     return (

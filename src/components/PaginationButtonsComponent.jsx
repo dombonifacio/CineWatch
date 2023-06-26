@@ -1,8 +1,24 @@
 
 import ReactPaginate from "react-paginate"
 import '../App.css'
-export const PaginationButtonsComponent = ({pageSelected, handlePageClick}) => {
+
+// context
+import { PageSelectedContext } from "../context/PageSelectedContext"
+import { useContext } from "react"
+
+
+
+export const PaginationButtonsComponent = () => {
+    const { pageSelected, setPageSelected } = useContext(PageSelectedContext)
+
+    const handlePageClick = (event) => {
+      
+        setPageSelected(event.selected + 1)
+        console.log(event.selected + 1, 'page number selected')
+    } 
     
+  
+
     const showPreviousButton = pageSelected !== 1
     const showNextButton = pageSelected !== 1000
 
