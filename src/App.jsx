@@ -11,6 +11,7 @@ import { TopRatedPage } from './pages/TopRatedPage'
 import { UpcomingMoviesPage } from './pages/UpcomingMoviesPage'
 import { MyListPage } from './pages/MyListPage'
 import { DiscoverPage } from './pages/DiscoverPage'
+import { DetailsPage } from './pages/DetailsPage'
 
 // third party librareies
 import axios from 'axios'
@@ -18,8 +19,11 @@ import axios from 'axios'
 // contexts
 import { MovieContext } from './context/MovieContext'
 import { PageSelectedContext } from './context/PageSelectedContext'
+
+// components
 import { NavbarComponent } from './components/NavbarComponent'
 import { NavbarHomePageComponent } from './components/NavbarHomePageComponent'
+
 
 
 
@@ -86,6 +90,10 @@ function App() {
     {
       path: '*',
       element: <h1>Error. Page not found.</h1>
+    },
+    {
+      path: '/3/movie/:id',
+      element: <DetailsPage />
     }
   ])
 

@@ -6,6 +6,9 @@
 import { AiFillStar } from 'react-icons/ai'
 import { BsFillPlayFill } from 'react-icons/bs'
 
+// router dom
+import { Link } from 'react-router-dom'
+
 
 export const MovieCardComponent = ({data, index}) => {
 
@@ -41,12 +44,13 @@ export const MovieCardComponent = ({data, index}) => {
                     </ul>
                     <p className="text-slate-300 text-bold truncate">{data?.original_title}</p>
                     <div className="bg-dark-500 p-1 mt-4">
-                        <button className="text-slate-400 flex justify-evenly items-center">
-                            <span >
+                       
+                        <Link to={`/3/movie/${data.id}`} className="text-slate-400 flex justify-evenly items-center">
+                            <span>
                                 <BsFillPlayFill size={"1.5rem"} className="text-center"/>
                             </span>
                             Watch Now
-                        </button>
+                        </Link>
                     </div>
                     
                 </div>

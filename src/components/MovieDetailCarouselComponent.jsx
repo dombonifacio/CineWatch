@@ -1,6 +1,7 @@
 // icons
 import { BiRightArrowAlt } from 'react-icons/bi'
 import { BiLeftArrowAlt } from 'react-icons/bi'
+import { AiFillStar } from 'react-icons/ai'
 
 export const MovieDetailCarouselComponent = ({carouselData, currentIndex, handleNextSlide, handlePreviousSlide}) => {
     if (!carouselData || !carouselData[currentIndex]) {
@@ -13,8 +14,33 @@ export const MovieDetailCarouselComponent = ({carouselData, currentIndex, handle
       return (
         <>
           <div className="">
-            <img src={`https://image.tmdb.org/t/p/original/${image}`} className="" />
-            <h1 className="text-2xl">{title}</h1> {/* Display the title */}
+      
+            
+            <img src={`https://image.tmdb.org/t/p/original/${image}`} 
+        
+             />
+            <ul>
+                <li>
+                    <h1 className="text-2xl">{title}</h1> {/* Display the title */}
+                </li>
+                <li>
+                    {overview}
+                </li>
+                <li className="text-sm text-slate-400">
+                    {release_date}
+                </li>
+                <li className="flex items-center gap-x-1">
+                      
+                    <AiFillStar className="text-light-blue"/>
+                    
+                    {rating > 0 ? <p className="text-slate-400 text-sm">{rating}</p> : <p className="text-slate-400 text-sm">N/A</p>}
+                    
+                        
+                    </li>
+            </ul>
+            
+            
+            
             <button onClick={handlePreviousSlide}>
 
                 <BiLeftArrowAlt size={"2rem"} />
