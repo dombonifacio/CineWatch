@@ -8,7 +8,7 @@ export const MovieDetailCarouselComponent = ({carouselData, currentIndex, handle
         return <div>Loading...</div>; // Display a loading indicator or placeholder
       }
     
-      console.log(carouselData[0].image, 'carousel data inside the carousel component');
+     
     
       const { title, image, overview, release_date, rating } = carouselData[currentIndex];
       return (

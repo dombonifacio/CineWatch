@@ -22,10 +22,12 @@ export const MovieCardComponent = ({data, index}) => {
         // cannot use filter since api only returns 20 items. use spread operator instead
         
         // the some function checks if any of the movies in the favourite list matches with the data (from api) id,
-        if (!data.isFavourite && !favouriteList.some(movie => movie.id === data.id))  {
+        if (!data.IsFavourite && !favouriteList.some(movie => movie.id === data.id))  {
            
-            const updatedData = { ...data, isFavourite: true };
+            const updatedData = { ...data, IsFavourite: true };
+            console.log(updatedData, 'updated data spread operator inside the discover page')
             setFavouriteList([...favouriteList, updatedData]);
+            
           
         }
     };
