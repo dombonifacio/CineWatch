@@ -14,6 +14,7 @@ import axios from 'axios'
 
 // css
 import '../App.css'
+import { MovieOverviewComponent } from '../components/MovieOverviewComponent'
 
 export const DetailsPage = () => {
     // get the id from the useParams object
@@ -55,38 +56,46 @@ export const DetailsPage = () => {
 
     return (
         <>
-            <div className="relative">
+            <div className="relative max-w-[1640px] mx-auto">
                 <div className='absolute w-full h-full  bg-gradient-to-t from-dark-blue bg-black/5 '>
                    
                     {/* Title, ratings PG 2023 */}
-                    <div className='flex flex-col items-center mt-52 gap-2 '>
+                    <div className='flex flex-col items-center mt-52 sm:mt-32  md:flex-row p-4 lg:flex-row justify-center'>
+                        
+                        <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.poster_path}`} className=' object-cover h-full w-44 lg:w-52 hidden sm:block'/>
+                        
 
-                        <h1 className='text-white text-4xl font-extrabold px-4 text-center'>{movieDetail?.original_title}</h1>
+                        {/* The title and the buttons along with the HD pg, etc.. */}
+                        <div className='md:flex flex-col flex-wrap items-start justify-start h-full space-y-3'>
 
-                        <ul className="flex flex-wrap items-center gap-x-2 justify-center ">
-                            <li className="flex items-center gap-x-1">
-                                <AiFillStar className="text-light-blue" />
-                                {movieDetail?.vote_average > 0 ? (
-                                <p className="text-slate-300 text-sm">{movieDetail.vote_average?.toFixed(1)}</p>
-                                ) : (
-                                <p className="text-slate-400 text-sm">N/A</p>
-                                )}
-                            </li>
-                            <li className="font-extrabold text-slate-300 text-sm">HD</li>
-                            <li className="border border-slate-500 rounded-md p-1 text-xs text-slate-300 font-bold">PG-13</li>
-                            <li className="text-sm text-slate-300">{movieDetail.release_date?.substr(0, 4)}</li>
-                            <li className="w-full flex justify-center mt-2 ">
-                                <Link
-                                to="/discover"
-                                className="rounded-full w-full py-2 px-4 bg-sky-500 text-black text-md hover:bg-sky-700 font-md flex justify-center items-center gap-1"
-                                >
-                                Watch Trailer
-                                <span>
-                                    <GrFormNextLink size={"1.5rem"} />
-                                </span>
-                                </Link>
-                            </li>
-                        </ul>
+
+                            <h1 className='text-white text-4xl font-extrabold px-4 text-center md:text-start'>{movieDetail?.original_title}</h1>
+
+                            <ul className="flex flex-wrap items-center gap-x-2 justify-center md:justify-start md:px-4 ">
+                                <li className="flex items-center gap-x-1">
+                                    <AiFillStar className="text-light-blue" />
+                                    {movieDetail?.vote_average > 0 ? (
+                                    <p className="text-slate-300 text-sm">{movieDetail.vote_average?.toFixed(1)}</p>
+                                    ) : (
+                                    <p className="text-slate-400 text-sm">N/A</p>
+                                    )}
+                                </li>
+                                <li className="font-extrabold text-slate-300 text-sm">HD</li>
+                                <li className="border border-slate-500 rounded-md p-1 text-xs text-slate-300 font-bold">PG-13</li>
+                                <li className="text-sm text-slate-300">{movieDetail.release_date?.substr(0, 4)}</li>
+                                <li className="w-full flex justify-center mt-2 ">
+                                    <Link
+                                    to="/discover"
+                                    className="rounded-full w-full py-2 px-4 bg-sky-500 text-black text-md hover:bg-sky-700 font-md flex justify-center items-center gap-1"
+                                    >
+                                    Watch Trailer
+                                    <span>
+                                        <GrFormNextLink size={"1.5rem"} />
+                                    </span>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 
 
@@ -94,37 +103,12 @@ export const DetailsPage = () => {
 
 
                     {/* Overview and other details part */}
-                    <div className='mt-16 p-4'>
-                        <ul className='flex flex-wrap gap-x-2'>
-                            <li>
-                                <h1 className='text-slate-400 font-bold'>Overview:</h1>
-                                <p className='text-slate-500'>{movieDetail?.overview}</p>
-                            </li>
-                            <li className='mt-4 flex  text-sm items-center gap-x-2'>
-                                <p className='font-bold text-slate-400'>Release: </p>
-                                <p className='text-slate-500'>{movieDetail?.release_date}</p>
-                            </li>
-                            <li className='mt-4 flex  text-sm items-center gap-x-2'>
-                                <p className='font-bold text-slate-400'>Language: </p>
-                                <p className='text-slate-500'>{movieDetail.original_language?.toUpperCase()}</p>
-                            </li>
-                            <li className='mt-4 flex  text-sm items-center gap-x-2'>
-                                <p className='font-bold text-slate-400'>Genre: </p>
-                                <p className='text-slate-500'>{genres}</p>
-                               
-                                
-                            </li>
-                            <li>
-                               
-                            </li>
-                        </ul>
-                       
-                       
-                    </div>
+                    <MovieOverviewComponent movieDetail={movieDetail} genres={genres}/>
+                  
           
                   
                 </div>
-                <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path}`} className='opacity-100 h-[500px] w-full object-cover'/>
+                <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path}`} className='opacity-100 h-[500px] lg:h-86 w-full object-cover'/>
                
             </div>
             {/* <button onClick={handleNavigate} className='text-black border text-left  border-red-500'>
