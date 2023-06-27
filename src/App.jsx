@@ -19,6 +19,7 @@ import axios from 'axios'
 // contexts
 import { MovieContext } from './context/MovieContext'
 import { PageSelectedContext } from './context/PageSelectedContext'
+import { FavouriteListContext } from './context/FavouriteListContext'
 
 // components
 import { NavbarComponent } from './components/NavbarComponent'
@@ -41,6 +42,8 @@ function App() {
     
     // declare var for total pages (tmdb gives 1000 total pages only)
     
+  // favourite list array
+  const [favouriteList, setFavouriteList] = useState([]);
   
 
 
@@ -98,14 +101,14 @@ function App() {
   ])
 
   return (
-  
+    
       <PageSelectedContext.Provider value={{pageSelected, setPageSelected}}>
-        
+        <FavouriteListContext.Provider value={{favouriteList, setFavouriteList}}>
           <MovieContext.Provider value={{movies, setMovies}}>
           {pathname === '/' ? <NavbarHomePageComponent /> : <NavbarComponent />}
           {element}
           </MovieContext.Provider>
-
+          </FavouriteListContext.Provider>
       </PageSelectedContext.Provider>
 
 

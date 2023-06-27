@@ -28,9 +28,13 @@ export const DetailsPage = () => {
         setLoading(true)
         axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&include_video=true&language=en-US&`)
         .then(({data}) => {
+            const requiredData = {
+                IsFavourite: false,
+                ...data
+            }
           
           
-          setMovieDetail(data)
+          setMovieDetail(requiredData)
           setLoading(false)
         })
     }

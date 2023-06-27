@@ -1,10 +1,13 @@
 
-
-// icons
-
 // icons 
-import { AiFillStar } from 'react-icons/ai'
+import { AiFillStar, AiOutlineHeart } from 'react-icons/ai'
 import { BsFillPlayFill } from 'react-icons/bs'
+
+// contexts
+import { FavouriteListContext } from '../context/FavouriteListContext'
+// hooks
+import { useContext, useEffect } from 'react'
+
 
 // router dom
 import { Link } from 'react-router-dom'
@@ -12,6 +15,24 @@ import { Link } from 'react-router-dom'
 
 export const MovieCardComponent = ({data, index}) => {
 
+    const { favouriteList, setFavouriteList } = useContext(FavouriteListContext)
+    
+  
+    const handleAddFav = () => {
+        // cannot use filter since api only returns 20 items. use spread operator instead
+        
+        // the some function checks if any of the movies in the favourite list matches with the data (from api) id,
+        if (!data.isFavourite && !favouriteList.some(movie => movie.id === data.id))  {
+           
+            const updatedData = { ...data, isFavourite: true };
+            setFavouriteList([...favouriteList, updatedData]);
+          
+        }
+    };
+      
+      
+    
+    
    
 
     return (
@@ -39,6 +60,12 @@ export const MovieCardComponent = ({data, index}) => {
                         <li className="text-sm text-slate-400">
                             {/* Only get the year */}
                             {data?.release_date.substr(0, 4)}
+                        </li>
+                        <li>
+                            <button onClick={handleAddFav}>
+
+                                <AiOutlineHeart />
+                            </button>
                         </li>
                         
                     </ul>

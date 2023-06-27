@@ -39,7 +39,7 @@ export const UpcomingMoviesPage = () => {
         .then(({data}) => {
           const requiredData = data.results.map((movie) => {
             return {
-              IsFavourite: false,
+           
               ...movie
             }
           })
