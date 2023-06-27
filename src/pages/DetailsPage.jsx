@@ -22,6 +22,8 @@ export const DetailsPage = () => {
     const [loading, setLoading] = useState(false)
     // store the specific movie in this state
     const [ movieDetail, setMovieDetail ] = useState({})
+    const genresList = movieDetail.genres?.map((genre) => genre?.name)
+    const genres = genresList?.join(", ")
 
     const navigate = useNavigate()
 
@@ -59,7 +61,7 @@ export const DetailsPage = () => {
                     {/* Title, ratings PG 2023 */}
                     <div className='flex flex-col items-center mt-52 gap-2 '>
 
-                        <h1 className='text-white text-4xl font-extrabold'>{movieDetail?.original_title}</h1>
+                        <h1 className='text-white text-4xl font-extrabold px-4 text-center'>{movieDetail?.original_title}</h1>
 
                         <ul className="flex flex-wrap items-center gap-x-2 justify-center ">
                             <li className="flex items-center gap-x-1">
@@ -93,7 +95,7 @@ export const DetailsPage = () => {
 
                     {/* Overview and other details part */}
                     <div className='mt-16 p-4'>
-                        <ul className='flex flex-wrap gap-x-2 gap-y-3'>
+                        <ul className='flex flex-wrap gap-x-2'>
                             <li>
                                 <h1 className='text-slate-400 font-bold'>Overview:</h1>
                                 <p className='text-slate-500'>{movieDetail?.overview}</p>
@@ -108,6 +110,8 @@ export const DetailsPage = () => {
                             </li>
                             <li className='mt-4 flex  text-sm items-center gap-x-2'>
                                 <p className='font-bold text-slate-400'>Genre: </p>
+                                <p className='text-slate-500'>{genres}</p>
+                               
                                 
                             </li>
                             <li>
