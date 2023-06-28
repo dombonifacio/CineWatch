@@ -68,7 +68,7 @@ export const DetailsPage = () => {
                         
                       
 
-                        <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.poster_path}`} className=' object-cover h-full hidden w-44 sm:block '/>
+                        <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.poster_path}`} className=' object-cover h-full hidden w-44 sm:block lg:self-center'/>
                    
                         
                         
