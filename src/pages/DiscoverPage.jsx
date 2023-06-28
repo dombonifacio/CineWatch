@@ -54,7 +54,7 @@ export const DiscoverPage = () => {
     
    
     return (
-        <div className="max-w-[1640px] mx-auto">
+        <div className="max-w-[1640px] mx-auto p-4">
             <h1 className='block md:hidden'>small breakpoint</h1>
             <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
             <h1 className='hidden lg:block'>large breakpoint</h1>

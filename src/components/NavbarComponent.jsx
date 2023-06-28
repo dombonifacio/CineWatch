@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 
 // contexts
 import { PageSelectedContext } from '../context/PageSelectedContext'
+import { LogoComponent } from './LogoComponent'
 
 
 
@@ -47,22 +48,35 @@ export const NavbarComponent = () => {
    
     return (
         <>
-            <div className='p-4 flex justify-between items-center'>
+            <h1 className='block md:hidden'>small breakpoint</h1>
+            <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
+            <h1 className='hidden lg:block'>large breakpoint</h1>
+            <div className='p-4 flex justify-between items-center w-full max-w-[1640px] mx-auto'>
 
                 <div className='flex gap-1 items-center'>
 
                     <button onClick={handleToggleMenu}>
-                        <RxHamburgerMenu size={"1.5rem"}/>
+                        <RxHamburgerMenu size={"1.5rem"} className='md:hidden'/>
                     </button>
-                    <FcFilmReel size={"1.8rem"}/>
-                    <p className='text-2xl font-bold font-signature'>CineWatch</p>
+                    
+                    <LogoComponent />
                     
                     
                 </div>
-                <button onClick={handleToggleSearch}>
+              
 
-                    <AiOutlineSearch size={"1.8rem"} />
-                </button>
+                {/* Medium breakpoint navbar */}
+                <div className='hidden md:flex'>
+                    <Link to='/' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Home</Link>
+                    <Link to='/discover' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Discover</Link>
+                    <Link to='/toprated' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Top Rated</Link>
+                    <Link to='/upcoming' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Upcoming</Link>
+                    <Link to='/mylist' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>My List</Link>
+                    <button onClick={handleToggleSearch} className='hidden'>
+
+                        <AiOutlineSearch size={"1.8rem"} />
+                    </button>
+                </div>
                 
             </div>
 
@@ -85,7 +99,7 @@ export const NavbarComponent = () => {
 
             {/* Mobile Menu */}
             {toggleMenu && 
-                <div className='p-2 bg-dark-700 '>
+                <div className='p-2 bg-dark-700 md:hidden '>
                     <ul className='flex flex-col gap-3 '>
                         <li className=''>
                         <Link to='/' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2 ' onClick={handleResetPage}>

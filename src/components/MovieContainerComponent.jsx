@@ -15,7 +15,7 @@ export const MovieContainerComponent = () => {
 
 
     return (
-        <div className="p-4 gap-2 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-3 ">
+        <div className="p-4 gap-2 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-3 max-w-[1640px] mx-auto">
             {/* {movies[0].map((movie) => {
                 return (
                     // return the card component here

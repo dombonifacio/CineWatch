@@ -74,11 +74,11 @@ export const MovieCardComponent = ({data, index}) => {
                     <ul className='flex justify-between'>
                         <li className='truncate'>
 
-                            <p className="text-slate-300 text-bold truncate text-sm md:text-md lg:text-lg">{data?.original_title}</p>
+                            <p className="text-slate-300 text-bold truncate text-sm md:text-md lg:text-lg">{data?.title}</p>
                         </li>
 {/*                         
                         check to see if the pathname is the  */}
-                        <li className={`${pathname === '/upcoming' ? 'hidden' : 'self-center flex'}`}>
+                        <li className={`${pathname === '/upcoming' || pathname === '/toprated' ? 'hidden' : 'self-center flex'}`}>
                             <button onClick={handleAddFav} >
                             
                                 <AiFillHeart size={"1.0rem"} /> 

@@ -57,9 +57,8 @@ export const DetailsPage = () => {
 
     return (
         <>
-            <h1 className='block md:hidden'>small breakpoint</h1>
-            <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
-            <h1 className='hidden lg:block'>large breakpoint</h1>
+            
+            
             <div className="relative max-w-[1640px] mx-auto ">
                 <div className='absolute w-full h-full  bg-gradient-to-t from-dark-blue bg-black/5 '>
                    
