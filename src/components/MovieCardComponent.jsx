@@ -31,6 +31,8 @@ export const MovieCardComponent = ({data, index}) => {
           
         }
     };
+
+    console.log(data, 'added to favourites')
       
       
     
@@ -72,16 +74,18 @@ export const MovieCardComponent = ({data, index}) => {
                             <p className="text-slate-300 text-bold truncate text-sm md:text-md lg:text-lg">{data?.original_title}</p>
                         </li>
                         <li className='self-center flex'>
-                            <button onClick={handleAddFav}>
-
-                                <AiOutlineHeart size={"1.0rem"} className=''/>
-                                </button>
+                            <button onClick={handleAddFav} >
+                               
+                                <AiFillHeart size={"1.0rem"} /> 
+                               
+                                
+                            </button>
                         </li>
                     </ul>
                     <div className="bg-dark-500 p-1 mt-4 hover:bg-dark-blue">
                        
                         <Link to={`/3/movie/${data.id}`} className="text-xs text-slate-400  flex justify-evenly items-center font-bold md:text-sm">
-                            <span className='hover:bg-white'>
+                            <span >
                                 <BsFillPlayFill size={"1.5rem"} className="text-center"/>
                             </span>
                             Watch Now
