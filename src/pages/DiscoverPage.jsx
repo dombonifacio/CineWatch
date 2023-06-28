@@ -54,14 +54,14 @@ export const DiscoverPage = () => {
     
    
     return (
-        <div className="max-w-[1640px] mx-auto p-4">
+        <div className="max-w-[1640px] mx-auto ">
             <h1 className='block md:hidden'>small breakpoint</h1>
             <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
             <h1 className='hidden lg:block'>large breakpoint</h1>
            
             
            
-            <div className="px-4 flex gap-x-4">
+            <div className="flex gap-x-4 px-4">
 
               <h1 className="text-2xl font-extrabold  ">Discover Movies</h1>
                 <select name="movies" id="movies" className="text-black bg-white" onChange={handleSetGenre}>

@@ -52,11 +52,11 @@ export const UpcomingMoviesPage = () => {
     
     console.log(pageSelected, 'page selected')
     return (
-        <div>
+        <div className="max-w-[1640px] mx-auto">
             
             
            
-            You are on the Upcoming Page
+            <h1 className="text-2xl font-extrabold  px-4">Upcoming Movies</h1>
             {loading ? <h1>Loading...</h1> : <MovieContainerComponent /> }
             
             <PaginationButtonsComponent  />

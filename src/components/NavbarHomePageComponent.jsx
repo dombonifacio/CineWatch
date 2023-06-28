@@ -33,16 +33,16 @@ export const NavbarHomePageComponent = () => {
    
     return (
       <>
-            <div className='p-4 flex justify-between items-center mx-auto max-w-[1640px]'>
+            <div className='p-2 mb-6 flex justify-between items-center mx-auto max-w-[1640px]'>
 
-                <div className='flex gap-1 items-center'>
-
-                    <button onClick={handleToggleMenu} >
-                        <RxHamburgerMenu size={"1.5rem"} className='md:hidden'/>
-                    </button>
-                   <LogoComponent />
+                <LogoComponent />
+                   
                     
-                </div>
+                    
+                
+                <button onClick={handleToggleMenu}>
+                        <RxHamburgerMenu size={"1.5rem"} className='md:hidden'/>
+                </button>
                 <div className='hidden md:flex'>
                     <Link to='/' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Home</Link>
                     <Link to='/discover' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Discover</Link>

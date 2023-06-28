@@ -50,10 +50,10 @@ export const TopRatedPage = () => {
     console.log(pageSelected, 'the page we are on. inside top rated page')
 
     return (
-        <div>
+        <div className="max-w-[1640px] mx-auto">
            
 
-            You are on the Top Rated Page
+            <h1 className="text-2xl font-extrabold  px-4">Top Rated Movies</h1>
             {loading ? <h1>Loading...</h1> : <MovieContainerComponent /> }
             
             <PaginationButtonsComponent  />

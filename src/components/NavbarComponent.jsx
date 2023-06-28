@@ -50,19 +50,20 @@ export const NavbarComponent = () => {
         <>
             <h1 className='block md:hidden'>small breakpoint</h1>
             <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
-            <h1 className='hidden lg:block'>large breakpoint</h1>
-            <div className='p-4 flex justify-between items-center w-full max-w-[1640px] mx-auto'>
 
-                <div className='flex gap-1 items-center'>
+            <div className='p-2 mb-6   flex justify-between items-center w-full max-w-[1640px] mx-auto'>
 
-                    <button onClick={handleToggleMenu}>
+              
+
+                    
+                <LogoComponent />
+                   
+                    
+                    
+                
+                <button onClick={handleToggleMenu}>
                         <RxHamburgerMenu size={"1.5rem"} className='md:hidden'/>
-                    </button>
-                    
-                    <LogoComponent />
-                    
-                    
-                </div>
+                </button>
               
 
                 {/* Medium breakpoint navbar */}
