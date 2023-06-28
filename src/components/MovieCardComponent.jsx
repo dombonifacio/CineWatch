@@ -7,6 +7,7 @@ import { BsFillPlayFill } from 'react-icons/bs'
 import { FavouriteListContext } from '../context/FavouriteListContext'
 // hooks
 import { useContext, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 
 // router dom
@@ -32,7 +33,9 @@ export const MovieCardComponent = ({data, index}) => {
         }
     };
 
-    console.log(data, 'added to favourites')
+    const location = useLocation()
+    const { pathname } = location
+
       
       
     
@@ -73,9 +76,11 @@ export const MovieCardComponent = ({data, index}) => {
 
                             <p className="text-slate-300 text-bold truncate text-sm md:text-md lg:text-lg">{data?.original_title}</p>
                         </li>
-                        <li className='self-center flex'>
+{/*                         
+                        check to see if the pathname is the  */}
+                        <li className={`${pathname === '/upcoming' ? 'hidden' : 'self-center flex'}`}>
                             <button onClick={handleAddFav} >
-                               
+                            
                                 <AiFillHeart size={"1.0rem"} /> 
                                
                                 
