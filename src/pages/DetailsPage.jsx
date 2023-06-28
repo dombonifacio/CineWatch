@@ -59,15 +59,15 @@ export const DetailsPage = () => {
         <>
             
             
-            <div className="relative max-w-[1640px] mx-auto ">
-                <div className='absolute w-full h-full  bg-gradient-to-t from-dark-blue bg-black/5 '>
+            <div className="relative max-w-[1640px]  mx-auto lg:px-4 ">
+                <div className='absolute w-full h-full  bg-gradient-to-t from-dark-blue bg-black/5'>
                    
                     {/* Title, ratings PG 2023 */}
-                    <div className='flex flex-col items-center justify-center mt-52 p-4 mx-auto sm:mt-32 md:flex-row md:w-3/4 lg:items-start lg:mt-24   '>
+                    <div className='flex flex-col items-center justify-center mt-44 p-4 mx-auto sm:mt-32 md:flex-row md:w-3/4 lg:items-start lg:mt-16  '>
                         
                       
 
-                        <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.poster_path}`} className=' object-cover h-full hidden w-44 sm:block lg:self-center'/>
+                        <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.poster_path}`} className=' object-cover h-full hidden w-44 sm:block'/>
                    
                         
                         
@@ -75,7 +75,7 @@ export const DetailsPage = () => {
                         <div className='md:flex flex-col flex-wrap items-start justify-start h-full space-y-3 md:items-start '>
 
 
-                            <h1 className='text-white text-4xl font-extrabold px-4 text-center md:text-start'>{movieDetail?.original_title}</h1>
+                            <h1 className='text-white text-4xl font-extrabold px-4 text-center md:text-start'>{movieDetail?.title}</h1>
 
                             <ul className="flex flex-wrap items-center gap-x-2 justify-center md:justify-start md:px-4 ">
                                 <li className="flex items-center gap-x-1">

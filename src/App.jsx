@@ -102,14 +102,15 @@ function App() {
 
   return (
     
-      <PageSelectedContext.Provider value={{pageSelected, setPageSelected}}>
-        <FavouriteListContext.Provider value={{favouriteList, setFavouriteList}}>
-          <MovieContext.Provider value={{movies, setMovies}}>
-          {pathname === '/' ? <NavbarHomePageComponent /> : <NavbarComponent />}
-          {element}
-          </MovieContext.Provider>
-          </FavouriteListContext.Provider>
-      </PageSelectedContext.Provider>
+    <FavouriteListContext.Provider value={{favouriteList, setFavouriteList}}>
+        <PageSelectedContext.Provider value={{pageSelected, setPageSelected}}>
+        
+            <MovieContext.Provider value={{movies, setMovies}}>
+            {pathname === '/' ? <NavbarHomePageComponent /> : <NavbarComponent />}
+            {element}
+            </MovieContext.Provider>
+        </PageSelectedContext.Provider>
+      </FavouriteListContext.Provider>
 
 
   )

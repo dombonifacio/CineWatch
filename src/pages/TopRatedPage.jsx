@@ -47,7 +47,7 @@ export const TopRatedPage = () => {
         })
     }
 
-    console.log(pageSelected, 'the page we are on. inside top rated page')
+
 
     return (
         <div className="max-w-[1640px] mx-auto">

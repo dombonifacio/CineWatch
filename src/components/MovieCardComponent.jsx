@@ -5,29 +5,39 @@ import { BsFillPlayFill } from 'react-icons/bs'
 
 // contexts
 import { FavouriteListContext } from '../context/FavouriteListContext'
+import { MovieContext } from '../context/MovieContext'
 // hooks
 import { useContext, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+
+
+
 
 
 // router dom
 import { Link } from 'react-router-dom'
 
 
+// eslint-disable-next-line react/prop-types
 export const MovieCardComponent = ({data, index}) => {
 
     const { favouriteList, setFavouriteList } = useContext(FavouriteListContext)
+    const { movies, setMovies } = useContext(MovieContext)
     
   
     const handleAddFav = () => {
-        // cannot use filter since api only returns 20 items. use spread operator instead
+   
         
         // the some function checks if any of the movies in the favourite list matches with the data (from api) id,
+        // eslint-disable-next-line react/prop-types
         if (!data.IsFavourite && !favouriteList.some(movie => movie.id === data.id))  {
            
             const updatedData = { ...data, IsFavourite: true };
             console.log(updatedData, 'updated data spread operator inside the discover page')
+            console.log(movies, 'updated movies list after ')
+
             setFavouriteList([...favouriteList, updatedData]);
+            setMovies([...movies, updatedData])
             
           
         }
@@ -81,7 +91,7 @@ export const MovieCardComponent = ({data, index}) => {
                         <li className={`${pathname === '/upcoming' || pathname === '/toprated' ? 'hidden' : 'self-center flex'}`}>
                             <button onClick={handleAddFav} >
                             
-                                <AiFillHeart size={"1.0rem"} /> 
+                                <AiOutlineHeart size={"1.0rem"} /> 
                                
                                 
                             </button>
