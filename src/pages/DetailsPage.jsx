@@ -25,6 +25,7 @@ export const DetailsPage = () => {
     const [ movieDetail, setMovieDetail ] = useState({})
     const genresList = movieDetail.genres?.map((genre) => genre?.name)
     const genres = genresList?.join(", ")
+    console.log(movieDetail, 'about the movie')
 
     const navigate = useNavigate()
 
@@ -56,17 +57,23 @@ export const DetailsPage = () => {
 
     return (
         <>
-            <div className="relative max-w-[1640px] mx-auto">
+            <h1 className='block md:hidden'>small breakpoint</h1>
+            <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
+            <h1 className='hidden lg:block'>large breakpoint</h1>
+            <div className="relative max-w-[1640px] mx-auto ">
                 <div className='absolute w-full h-full  bg-gradient-to-t from-dark-blue bg-black/5 '>
                    
                     {/* Title, ratings PG 2023 */}
-                    <div className='flex flex-col items-center mt-52 sm:mt-32  md:flex-row p-4 lg:flex-row justify-center'>
+                    <div className='flex flex-col items-center justify-center mt-52 p-4 mx-auto sm:mt-32 md:flex-row md:w-3/4 lg:items-start lg:mt-24   '>
                         
-                        <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.poster_path}`} className=' object-cover h-full w-44 lg:w-52 hidden sm:block'/>
-                        
+                      
 
+                        <img src={`https://image.tmdb.org/t/p/original/${movieDetail?.poster_path}`} className=' object-cover h-full hidden w-44 sm:block '/>
+                   
+                        
+                        
                         {/* The title and the buttons along with the HD pg, etc.. */}
-                        <div className='md:flex flex-col flex-wrap items-start justify-start h-full space-y-3'>
+                        <div className='md:flex flex-col flex-wrap items-start justify-start h-full space-y-3 md:items-start '>
 
 
                             <h1 className='text-white text-4xl font-extrabold px-4 text-center md:text-start'>{movieDetail?.original_title}</h1>
@@ -75,18 +82,21 @@ export const DetailsPage = () => {
                                 <li className="flex items-center gap-x-1">
                                     <AiFillStar className="text-light-blue" />
                                     {movieDetail?.vote_average > 0 ? (
-                                    <p className="text-slate-300 text-sm">{movieDetail.vote_average?.toFixed(1)}</p>
+                                    <p className="text-slate-300 text-sm  lg:text-slate-200">{movieDetail.vote_average?.toFixed(1)}</p>
                                     ) : (
-                                    <p className="text-slate-400 text-sm">N/A</p>
+                                    <p className="text-slate-400 text-sm lg:text-slate-200">N/A</p>
                                     )}
                                 </li>
                                 <li className="font-extrabold text-slate-300 text-sm">HD</li>
                                 <li className="border border-slate-500 rounded-md p-1 text-xs text-slate-300 font-bold">PG-13</li>
                                 <li className="text-sm text-slate-300">{movieDetail.release_date?.substr(0, 4)}</li>
-                                <li className="w-full flex justify-center mt-2 ">
+                                <li className='hidden lg:block'>
+                                    <MovieOverviewComponent movieDetail={movieDetail} genres={genres}/>
+                                </li>
+                                <li className="w-full flex justify-center mt-2 lg:justify-start">
                                     <Link
                                     to="/discover"
-                                    className="rounded-full w-full py-2 px-4 bg-sky-500 text-black text-md hover:bg-sky-700 font-md flex justify-center items-center gap-1"
+                                    className="rounded-full w-full py-2 px-4 bg-sky-500 text-black text-md hover:bg-sky-700 font-md flex justify-center items-center gap-1 lg:w-1/2"
                                     >
                                     Watch Trailer
                                     <span>
@@ -103,7 +113,10 @@ export const DetailsPage = () => {
 
 
                     {/* Overview and other details part */}
-                    <MovieOverviewComponent movieDetail={movieDetail} genres={genres}/>
+                    <div className='lg:hidden'>
+
+                        <MovieOverviewComponent movieDetail={movieDetail} genres={genres}/>
+                    </div>
                   
           
                   
