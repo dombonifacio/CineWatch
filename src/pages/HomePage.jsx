@@ -44,11 +44,11 @@ export const HomePage = () => {
         .then(({data}) => {
           const requiredData = data.results.map((movie) => {
             return {
-              title: movie.original_title,
+              title: movie.title,
               image: movie.backdrop_path,
               overview: movie.overview,
               release_date: movie.release_date.substr(0, 4),
-              rating: movie.vote_average
+              rating: movie.vote_average.toFixed(1)
             }
           })
           setCarouselData(requiredData)
@@ -84,6 +84,8 @@ export const HomePage = () => {
               
               
             </div>
+
+          
         </>
             
       

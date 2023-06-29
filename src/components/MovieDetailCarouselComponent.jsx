@@ -13,12 +13,12 @@ export const MovieDetailCarouselComponent = ({carouselData, currentIndex, handle
       const { title, image, overview, release_date, rating } = carouselData[currentIndex];
       return (
         <>
-          <div className="">
+          <div className="max-w-[1640px] mx-auto">
       
             
-            <img src={`https://image.tmdb.org/t/p/original/${image}`} 
+            <img src={`https://image.tmdb.org/t/p/original/${image}`} className='duration-500'/> 
         
-             />
+             
             <ul>
                 <li>
                     <h1 className="text-2xl">{title}</h1> {/* Display the title */}

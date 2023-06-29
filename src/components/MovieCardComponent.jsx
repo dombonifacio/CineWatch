@@ -71,13 +71,13 @@ export const MovieCardComponent = ({data, index}) => {
                         check to see if the pathname is the  */}
                        
                     </ul>
-                    <div className="bg-dark-500 p-1 mt-4 hover:bg-dark-blue">
+                    <div className="bg-dark-500 p-1 mt-4 hover:bg-dark-blue ">
                        
-                        <Link to={`/3/movie/${data.id}`} className="text-xs text-slate-400  flex justify-evenly items-center font-bold md:text-sm">
+                        <Link to={`/3/movie/${data.id}`} className="text-xs text-slate-400  flex justify-center items-center font-bold md:text-sm">
                             <span >
                                 <BsFillPlayFill size={"1.5rem"} className="text-center"/>
                             </span>
-                            Watch Now
+                            <p>Watch Now</p>
                         </Link>
                     </div>
                     
