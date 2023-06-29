@@ -15,6 +15,7 @@ import axios from 'axios'
 // css
 import '../App.css'
 import { MovieOverviewComponent } from '../components/MovieOverviewComponent'
+import { MovieContainerComponent } from '../components/MovieContainerComponent'
 
 export const DetailsPage = () => {
     // get the id from the useParams object
@@ -25,7 +26,8 @@ export const DetailsPage = () => {
     const [ movieDetail, setMovieDetail ] = useState({})
     const genresList = movieDetail.genres?.map((genre) => genre?.name)
     const genres = genresList?.join(", ")
-    console.log(movieDetail, 'about the movie')
+    const [recommendedMovies, setRecommendedMovies] = useState([])
+
 
     const navigate = useNavigate()
 
@@ -36,7 +38,10 @@ export const DetailsPage = () => {
     useEffect(() => {
         getMoviesData()
         
+        
     }, [id])
+
+    console.log(recommendedMovies, 'recommended movies')
   
     const getMoviesData = () => {
         setLoading(true)
@@ -51,6 +56,16 @@ export const DetailsPage = () => {
           setMovieDetail(requiredData)
           setLoading(false)
         })
+        getRecommendationsData()
+    }
+
+    const getRecommendationsData = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${import.meta.env.VITE_API_KEY}&include_video=true&language=en-US&`)
+        .then(({data}) => {
+            
+            setRecommendedMovies(data.results)
+
+        })
     }
    
 
@@ -58,7 +73,7 @@ export const DetailsPage = () => {
     return (
         <>
             
-            
+           
             <div className="relative max-w-[1640px]  mx-auto lg:px-4 ">
                 <div className='absolute w-full h-full  bg-gradient-to-t from-dark-blue bg-black/5'>
                    
@@ -126,6 +141,9 @@ export const DetailsPage = () => {
             {/* <button onClick={handleNavigate} className='text-black border text-left  border-red-500'>
                 Go back
             </button> */}
+            <div>
+                <MovieContainerComponent />
+            </div>
         </>
     )
 }
