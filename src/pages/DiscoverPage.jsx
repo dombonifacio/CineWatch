@@ -65,10 +65,13 @@ export const DiscoverPage = () => {
            
             
            
-            <div className="flex gap-x-4 px-4">
-
+            <div className="flex gap-x-2 px-4 items-center">
+              {/* Rectangle shape beside page title */}
+              <div className="bg-light-blue w-2 h-6">
+                
+              </div>
               <h1 className="text-2xl font-extrabold  ">Discover Movies</h1>
-                <select name="movies" id="movies" className="text-black bg-white" onChange={handleSetGenre}>
+                <select name="movies" id="movies" className="text-black bg-white ml-2" onChange={handleSetGenre}>
                   <option value="28">Action</option>
                   <option value="12">Adventure</option>
                   <option value="16">Animation</option>
@@ -92,7 +95,7 @@ export const DiscoverPage = () => {
 
               </select>
             </div>
-            {loading ? <h1>Loading...</h1> : <MovieContainerComponent /> }
+            {loading ? <h1>Loading...</h1> : <MovieContainerComponent data={movies}/> }
             
             <PaginationButtonsComponent  />
            

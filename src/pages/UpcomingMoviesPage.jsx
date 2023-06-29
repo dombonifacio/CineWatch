@@ -55,9 +55,14 @@ export const UpcomingMoviesPage = () => {
         <div className="max-w-[1640px] mx-auto">
             
             
-           
-            <h1 className="text-2xl font-extrabold  px-4">Upcoming Movies</h1>
-            {loading ? <h1>Loading...</h1> : <MovieContainerComponent /> }
+           <div className="flex gap-x-2 items-center px-4">
+
+              <div className="bg-light-blue w-2 h-6 ">
+                  
+              </div>
+              <h1 className="text-2xl font-extrabold">Upcoming Movies</h1>
+           </div>
+            {loading ? <h1>Loading...</h1> : <MovieContainerComponent data={movies}/> }
             
             <PaginationButtonsComponent  />
            

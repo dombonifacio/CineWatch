@@ -9,15 +9,15 @@ export const MovieOverviewComponent = ({movieDetail, genres}) => {
                 </li>
                 <li className='mt-4 lg:mt-0 flex  text-sm items-center gap-x-2'>
                     <p className='font-bold text-slate-400 lg:text-slate-300'>Release: </p>
-                    <p className='text-slate-500 lg:text-slate-400'>{movieDetail?.release_date}</p>
+                    <p className='text-slate-500 lg:text-slate-300'>{movieDetail?.release_date}</p>
                 </li>
                 <li className='mt-4 lg:mt-0 flex  text-sm items-center gap-x-2'>
                     <p className='font-bold text-slate-400 lg:text-slate-300'>Language: </p>
-                    <p className='text-slate-500 lg:text-slate-400'>{movieDetail.original_language?.toUpperCase()}</p>
+                    <p className='text-slate-500 lg:text-slate-300'>{movieDetail.original_language?.toUpperCase()}</p>
                 </li>
                 <li className='mt-4 lg:mt-0 flex  text-sm items-center gap-x-2'>
                     <p className='font-bold text-slate-400 lg:text-slate-300'>Genre: </p>
-                    <p className='text-slate-500 lg:text-slate-400'>{genres}</p>
+                    <p className='text-slate-500 lg:text-slate-300'>{genres}</p>
                 
                     
                     

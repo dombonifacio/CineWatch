@@ -6,6 +6,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { AiFillStar } from 'react-icons/ai'
 import { GrFormNextLink } from 'react-icons/gr'
 
+// contexts
+import { MovieContext } from "../context/MovieContext"
 
 
 
@@ -27,7 +29,9 @@ export const DetailsPage = () => {
     const genresList = movieDetail.genres?.map((genre) => genre?.name)
     const genres = genresList?.join(", ")
     const [recommendedMovies, setRecommendedMovies] = useState([])
+   
 
+    const { movies } = useContext(MovieContext)
 
     const navigate = useNavigate()
 
@@ -38,6 +42,7 @@ export const DetailsPage = () => {
     useEffect(() => {
         getMoviesData()
         
+        getRecommendationsData()
         
     }, [id])
 
@@ -56,7 +61,7 @@ export const DetailsPage = () => {
           setMovieDetail(requiredData)
           setLoading(false)
         })
-        getRecommendationsData()
+        
     }
 
     const getRecommendationsData = () => {
@@ -74,7 +79,7 @@ export const DetailsPage = () => {
         <>
             
            
-            <div className="relative max-w-[1640px]  mx-auto lg:px-4 ">
+            <div className="relative max-w-[1640px] mx-auto  ">
                 <div className='absolute w-full h-full  bg-gradient-to-t from-dark-blue bg-black/5'>
                    
                     {/* Title, ratings PG 2023 */}
@@ -141,8 +146,9 @@ export const DetailsPage = () => {
             {/* <button onClick={handleNavigate} className='text-black border text-left  border-red-500'>
                 Go back
             </button> */}
-            <div>
-                <MovieContainerComponent />
+            <div className='mt-8'>
+                <h1 className="text-2xl font-extrabold  px-4">Recommended Movies</h1>
+                <MovieContainerComponent data={recommendedMovies}/>
             </div>
         </>
     )

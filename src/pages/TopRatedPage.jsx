@@ -51,10 +51,14 @@ export const TopRatedPage = () => {
 
     return (
         <div className="max-w-[1640px] mx-auto">
-           
+           <div className="flex gap-x-2 items-center px-4">
 
-            <h1 className="text-2xl font-extrabold  px-4">Top Rated Movies</h1>
-            {loading ? <h1>Loading...</h1> : <MovieContainerComponent /> }
+              <div className="bg-light-blue w-2 h-6 ">
+                  
+              </div>
+              <h1 className="text-2xl font-extrabold">Top Rated Movies</h1>
+           </div>
+            {loading ? <h1>Loading...</h1> : <MovieContainerComponent data={movies}/> }
             
             <PaginationButtonsComponent  />
         </div>

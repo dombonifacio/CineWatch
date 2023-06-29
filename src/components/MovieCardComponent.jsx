@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom'
 // eslint-disable-next-line react/prop-types
 export const MovieCardComponent = ({data, index}) => {
 
-    const { movies, setMovies } = useContext(MovieContext)
+    
     
   
    
@@ -37,7 +37,7 @@ export const MovieCardComponent = ({data, index}) => {
         <>
         {/* No need to map through the data because in the movie container, it's already been mapped. We just want to design what one card would look like */}
         <div className="bg-dark-700">
-                <img src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`} className='object-cover '/>
+                <img src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`} className='object-cover min-h-[325px]'/>
                 {/* Details Section */}
                 <div className="pt-1 pb-3 px-2 flex flex-col" key={index}>
                     <ul className="flex items-center gap-x-1 md:gap-x-2">
@@ -45,7 +45,7 @@ export const MovieCardComponent = ({data, index}) => {
                       
                             <AiFillStar className="text-light-blue" size={"1.0rem"}/>
                       
-                            {data?.vote_average > 0 ? <p className="text-slate-400 text-xs md:text-sm">{data?.vote_average}</p> : <p className="text-slate-400 text-xs">N/A</p>}
+                            {data?.vote_average > 0 ? <p className="text-slate-400 text-xs md:text-sm">{data?.vote_average.toFixed(1)}</p> : <p className="text-slate-400 text-xs">N/A</p>}
                         
                             
                         </li>
