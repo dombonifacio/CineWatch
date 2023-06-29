@@ -25,7 +25,7 @@ export const MovieContainerComponent = () => {
             {movies.map((movie, index) => {
                 return (
 
-                    <MovieCardComponent data={movie} index={index}/>
+                    <MovieCardComponent data={movie} index={index} />
                 )
             })}
         </div>

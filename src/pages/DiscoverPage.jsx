@@ -6,7 +6,7 @@ import { MovieContainerComponent } from "../components/MovieContainerComponent"
 // contexts
 import { MovieContext } from "../context/MovieContext"
 import { PageSelectedContext } from "../context/PageSelectedContext"
-import { FavouriteListContext } from "../context/FavouriteListContext"
+
 
 // hooks
 import { useContext, useState, useEffect } from "react"
@@ -23,7 +23,7 @@ export const DiscoverPage = () => {
 
     const { movies, setMovies } = useContext(MovieContext) 
     const { pageSelected } = useContext(PageSelectedContext)
-    const { favouriteList } = useContext(FavouriteListContext)
+
     const [genre, setGenre] = useState("")
     const [ loading, setLoading ] = useState(false)
 
@@ -44,8 +44,8 @@ export const DiscoverPage = () => {
         axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=${pageSelected}&include_video=true&sort_by=popularity.desc&language=en-US&with_genres=${genre}`)
         .then(({data}) => {
           const requiredData = data.results.map((movie) => {
+            
             return {
-              IsFavourite: false,
               ...movie
             }
           })

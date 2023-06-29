@@ -9,7 +9,7 @@ import { useState, useEffect} from 'react'
 import { HomePage } from './pages/HomePage'
 import { TopRatedPage } from './pages/TopRatedPage'
 import { UpcomingMoviesPage } from './pages/UpcomingMoviesPage'
-import { MyListPage } from './pages/MyListPage'
+
 import { DiscoverPage } from './pages/DiscoverPage'
 import { DetailsPage } from './pages/DetailsPage'
 
@@ -19,7 +19,7 @@ import axios from 'axios'
 // contexts
 import { MovieContext } from './context/MovieContext'
 import { PageSelectedContext } from './context/PageSelectedContext'
-import { FavouriteListContext } from './context/FavouriteListContext'
+
 
 // components
 import { NavbarComponent } from './components/NavbarComponent'
@@ -42,9 +42,7 @@ function App() {
     
     // declare var for total pages (tmdb gives 1000 total pages only)
     
-  // favourite list array
-  const [favouriteList, setFavouriteList] = useState([]);
-  
+
 
 
   useEffect(() => {
@@ -57,7 +55,7 @@ function App() {
       .then(({data}) => {
         const requiredData = data.results.map((movie) => {
           return {
-            IsFavourite: false,
+        
             ...movie
           }
         })
@@ -86,10 +84,7 @@ function App() {
       path: '/upcoming',
       element: <UpcomingMoviesPage />
     },
-    {
-      path: '/mylist',
-      element: <MyListPage />
-    },
+    
     {
       path: '*',
       element: <h1>Error. Page not found.</h1>
@@ -102,15 +97,18 @@ function App() {
 
   return (
     
-    <FavouriteListContext.Provider value={{favouriteList, setFavouriteList}}>
+    
         <PageSelectedContext.Provider value={{pageSelected, setPageSelected}}>
-        
-            <MovieContext.Provider value={{movies, setMovies}}>
-            {pathname === '/' ? <NavbarHomePageComponent /> : <NavbarComponent />}
-            {element}
+           <MovieContext.Provider value={{movies, setMovies}}>
+             
+            
+              
+                {pathname === '/' ? <NavbarHomePageComponent /> : <NavbarComponent />}
+                {element}
+             
             </MovieContext.Provider>
         </PageSelectedContext.Provider>
-      </FavouriteListContext.Provider>
+    
 
 
   )

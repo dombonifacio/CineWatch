@@ -37,7 +37,7 @@ export const TopRatedPage = () => {
             setLoading(true)
           const requiredData = data.results.map((movie) => {
             return {
-              IsFavourite: false,
+              
               ...movie
             }
           })
