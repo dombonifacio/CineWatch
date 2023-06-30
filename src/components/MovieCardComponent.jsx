@@ -37,7 +37,7 @@ export const MovieCardComponent = ({data, index}) => {
         <>
         {/* No need to map through the data because in the movie container, it's already been mapped. We just want to design what one card would look like */}
         <div className="bg-dark-700">
-                <img src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`} className='object-cover min-h-[325px]'/>
+                <img src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`} className='object-cover max-h-[250px] w-full lg:min-h-[325px]'/>
                 {/* Details Section */}
                 <div className="pt-1 pb-3 px-2 flex flex-col" key={index}>
                     <ul className="flex items-center gap-x-1 md:gap-x-2">
