@@ -41,7 +41,7 @@ export const HomePage = () => {
   
     const getMoviesData = () => {
         
-        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=1&with_genres=80&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=1&with_genres=10751&language=en-US`)
         .then(({data}) => {
           const requiredData = data.results.map((movie) => {
             return {
@@ -65,22 +65,18 @@ export const HomePage = () => {
     return (
         <>
 
-<MovieDetailCarouselComponent carouselData={carouselData} currentIndex={currentIndex} handleNextSlide={handleNextSlide} handlePreviousSlide={handlePreviousSlide}/>
-            <div className="max-w-[1640px] mx-auto p-4 flex flex-col items-center mt-24 gap-5 h-screen">
+
+            <div className="max-w-[1640px] p-4 flex flex-col items-center justify-center gap-5 h-[100vh] lg:p-0">
                <p className="text-4xl font-extrabold text-center">Unleash Your Inner Cinephile: Explore, Stream, and Enjoy!</p>
                <p className="text-center font-extralight text-slate-400">Experience the exhilaration of watching movies on our state-of-the-art website, where entertainment transcends boundaries and transports you to a realm of immersive cinematic bliss. Indulge in an awe-inspiring cinematic adventure from the cozy confines of your own screen, as our vast and meticulously curated collection of movies caters to every conceivable genre, mood, and taste, promising an unforgettable sensory experience that will leave you spellbound and yearning for more.</p>
-               <input type="text" className="w-full max-w-[1200px] p-2 text-dark-700 border rounded-md" placeholder="Search for a movie">
-               
-               </input>
+              
               
                
                
-                <Link to='/discover' className="rounded-full border p-3 w-1/2 bg-sky-500 border-dark-blue text-black text-xl hover:bg-sky-700  font-md flex justify-center items-center gap-2">
+                <Link to='/discover' className="rounded-full  p-3 w-1/2 bg-sky-500 text-slate-300 font-bold text-md hover:bg-sky-800  font-md flex justify-center items-center gap-2">
                     
                     Watch Movies
-                    <span>
-                        <GrFormNextLink />
-                    </span>
+                   
                 </Link>
                 
 

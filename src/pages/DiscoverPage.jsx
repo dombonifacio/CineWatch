@@ -2,6 +2,7 @@
 import { NavbarComponent } from "../components/NavbarComponent"
 import { PaginationButtonsComponent } from '../components/PaginationButtonsComponent'
 import { MovieContainerComponent } from "../components/MovieContainerComponent"
+import { MovieDetailCarouselComponent } from "../components/MovieDetailCarouselComponent"
 
 // contexts
 import { MovieContext } from "../context/MovieContext"
@@ -21,6 +22,50 @@ import axios from "axios"
 
 export const DiscoverPage = () => {
 
+  // ******************************* CAROUSEL *******************************
+
+  const [carouselData, setCarouselData] = useState([])
+  const [currentIndex, setCurrentIndex] = useState(0)
+  
+    console.log(currentIndex, 'current Index')
+    const handleNextSlide = () => {
+        setCurrentIndex((prevState) => currentIndex === carouselData.length - 1 ? 0 : prevState + 1)
+
+    }
+
+    const handlePreviousSlide = () => {
+        // if currentIndex hits 0 or the first element, go back to the very last element
+        setCurrentIndex((prevState) => currentIndex === 0 ? carouselData.length - 1 : prevState - 1)
+    }
+
+    // call the API everytime the state button changes or is clicked
+    useEffect(() => {
+      getCarouselData()
+        
+    }, [currentIndex])
+  
+    const getCarouselData = () => {
+        
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=1&with_genres=10751&language=en-US`)
+        .then(({data}) => {
+          const requiredData = data.results.map((movie) => {
+            return {
+              id: movie.id,
+              title: movie.title,
+              image: movie.backdrop_path,
+              overview: movie.overview,
+              release_date: movie.release_date.substr(0, 4),
+              rating: movie.vote_average.toFixed(1)
+            }
+          })
+          setCarouselData(requiredData)
+          
+        })
+    }
+
+
+
+  // ******************************* CAROUSEL *******************************
     const { movies, setMovies } = useContext(MovieContext) 
     const { pageSelected } = useContext(PageSelectedContext)
 
@@ -54,14 +99,15 @@ export const DiscoverPage = () => {
           setLoading(false)
         })
     }
+
+    
     
     
    
     return (
         <div className="max-w-[1640px] mx-auto ">
-            <h1 className='block md:hidden'>small breakpoint</h1>
-            <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
-            <h1 className='hidden lg:block'>large breakpoint</h1>
+           <MovieDetailCarouselComponent carouselData={carouselData} currentIndex={currentIndex} handleNextSlide={handleNextSlide} handlePreviousSlide={handlePreviousSlide}/>
+            
            
             
            

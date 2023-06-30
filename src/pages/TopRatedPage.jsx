@@ -50,7 +50,7 @@ export const TopRatedPage = () => {
 
 
     return (
-        <div className="max-w-[1640px] mx-auto">
+        <div className="max-w-[1640px] mx-auto mt-6">
            <div className="flex gap-x-2 items-center px-4">
 
               <div className="bg-light-blue w-2 h-6 ">

@@ -52,7 +52,7 @@ export const UpcomingMoviesPage = () => {
     
     console.log(pageSelected, 'page selected')
     return (
-        <div className="max-w-[1640px] mx-auto">
+        <div className="max-w-[1640px] mx-auto mt-6">
             
             
            <div className="flex gap-x-2 items-center px-4">

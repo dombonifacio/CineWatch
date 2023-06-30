@@ -48,10 +48,9 @@ export const NavbarComponent = () => {
    
     return (
         <>
-            <h1 className='block md:hidden'>small breakpoint</h1>
-            <h1 className='hidden md:block lg:hidden'>md breakpoint</h1>
+          
 
-            <div className='p-2 mb-6   flex justify-between items-center w-full max-w-[1640px] mx-auto'>
+            <div className='p-2 flex justify-between items-center w-full max-w-[1640px] mx-auto'>
 
               
 
@@ -130,7 +129,7 @@ export const NavbarComponent = () => {
                             </Link>
                             
                         </li>
-                        <li className=''>
+                        <li className='mb-4'>
                         <Link to='/upcoming' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                             <span >
                                 <MdUpcoming size={"1.5rem"}  / >

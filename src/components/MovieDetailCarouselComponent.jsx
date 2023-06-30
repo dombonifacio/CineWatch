@@ -14,19 +14,19 @@ export const MovieDetailCarouselComponent = ({carouselData, currentIndex, handle
     
      
     
-      const { title, image, overview, release_date, rating } = carouselData[currentIndex];
+      const { title, image, overview, release_date, rating, id } = carouselData[currentIndex];
       return (
         <>
-          <div className="max-w-[960px] mx-auto relative" >
+          <div className="max-w-[1640px] mx-auto relative " >
       
-            <div className='absolute w-full h-full bg-gradient-to-t from-dark-blueflex items-center justify-between px-4' >
+            <div className='absolute w-full h-full bg-gradient-to-t from-dark-blue flex items-center justify-between px-4' >
               <div className='flex items-center gap-x-4 w-full'>
 
                 <button onClick={handlePreviousSlide} className='p-2 bg-white rounded-full hidden lg:block'>
 
                     <BiLeftArrowAlt size={"2rem"} color='black'/>
                 </button>
-                <div>
+                <div className='lg:max-w-[760px]'>
                 <ul className='text-white flex flex-col   w-full flex-wrap items-center text-center space-y-1 lg:items-start lg:text-start lg:w-3/4 '>
                     <li className=''>
                         <h1 className="text-4xl font-extrabold">{title}</h1> {/* Display the title */}
@@ -51,10 +51,10 @@ export const MovieDetailCarouselComponent = ({carouselData, currentIndex, handle
                     </li>
                     <li className='w-full max-w-[180px]'>
                       <Link
-                        to="/discover"
+                        to={`/3/movie/${id}`}
                         className="rounded-md  py-2 px-4 bg-sky-500 text-slate-300 font-bold text-md hover:bg-sky-800 hover:text-slate-100 font-md flex justify-center items-center gap-3"
                         >
-                        Watch Trailer
+                        Watch Movie
                         <span>
                             <BsPlayCircle size={"1.5rem"} />
                         </span>

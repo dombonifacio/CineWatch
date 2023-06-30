@@ -33,7 +33,7 @@ export const NavbarHomePageComponent = () => {
    
     return (
       <>
-            <div className='p-2 mb-6 flex justify-between items-center mx-auto max-w-[1640px]'>
+            <div className='p-2 flex justify-between items-center mx-auto max-w-[1640px]'>
 
                 <LogoComponent />
                    
@@ -48,11 +48,7 @@ export const NavbarHomePageComponent = () => {
                     <Link to='/discover' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Discover</Link>
                     <Link to='/toprated' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Top Rated</Link>
                     <Link to='/upcoming' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>Upcoming</Link>
-                    <Link to='/mylist' className='text-slate-300 hover:text-xl flex items-center gap-x-2 p-2' onClick={handleResetPage}>My List</Link>
-                    {/* <button onClick={handleToggleSearch} className='hidden'>
-
-                        <AiOutlineSearch size={"1.8rem"} />
-                    </button> */}
+                   
                 </div>
              
                 
@@ -94,7 +90,7 @@ export const NavbarHomePageComponent = () => {
                         </Link>
                         
                     </li>
-                    <li className=''>
+                    <li className='mb-4'>
                     <Link to='/upcoming' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
                         <span >
                             <MdUpcoming size={"1.5rem"}  / >
@@ -104,15 +100,7 @@ export const NavbarHomePageComponent = () => {
                         </Link>
                         
                     </li>
-                   <li className='mb-4'>
-                        <Link to='/mylist' className='text-slate-300 hover:text-slate-500 flex items-center gap-x-2 border-b border-slate-500 p-2' onClick={handleResetPage}>
-                        <span >
-                            <AiFillHeart size={"1.5rem"}  / >
-                            
-                        </span>
-                        My List
-                        </Link>
-                    </li>
+                  
 
                 </ul>
             </div>}
